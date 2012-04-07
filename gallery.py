@@ -10,10 +10,9 @@ def main():
 
     # get input arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--comment', default='cc-by-sa Tilman Beitter')
     parser.add_argument('-s', '--size', default='1280x800')
-    parser.add_argument('-q', '--quality', default=85)
-    parser.add_argument('directory', )
+    parser.add_argument('-q', '--quality', default=85, type=int)
+    parser.add_argument('directory') 
     args = parser.parse_args()
     
     # define directory structur
@@ -51,7 +50,6 @@ def main():
                 dest     = dirSource + '/' + filename
                 victim   = dirDestWeb + '/' + filename
                 command  = "convert -resize %s -quality %d %s %s" % (args.size, args.quality, dest, victim)
-                print command
                 (status, output) = commands.getstatusoutput(command)
 
 if __name__ == '__main__':
