@@ -48,10 +48,9 @@ def main():
 
                 dest     = dirSource + '/' + filename
                 victim   = dirDestWeb + '/' + filename
-                command  = "convert -resize 800x600 -quality 100 %s %s" % (dest, victim)
+                command  = "convert -resize 1280x800 -quality 85 %s %s" % (dest, victim)
 
                 (status, output) = commands.getstatusoutput(command)
-
 
 if __name__ == '__main__':
     main()
